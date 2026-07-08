@@ -1,0 +1,278 @@
+{% extends 'portfolio_app/base.html' %}
+{% load static %}
+
+{% block title %}Home — Student Portfolio{% endblock %}
+
+{% block meta_description %}
+Personal portfolio of a Python and Django web developer.
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">👋 Welcome to my portfolio</span>
+
+      <h1 class="hero-name">Muhammad Ahmed</h1>
+
+      <p class="hero-title">
+        Python Developer &nbsp;|&nbsp; Django Developer &nbsp;|&nbsp; Web Developer
+      </p>
+
+      <p class="hero-intro">
+        I'm a passionate student developer building clean, functional web
+        applications using Python and Django. I love turning ideas into
+        real digital products.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="{% url 'projects' %}" class="btn btn-primary">View Projects</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline" style="color:#74c69d; border-color:#74c69d;">
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <img src="{% static 'portfolio_app/images/profile.jpg' %}" alt="Muhammad Ahmed" class="hero-avatar">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- About Section -->
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A little about who I am and what I do.</p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-text">
+        <p>
+          Hi! I'm Muhammad Ahmed, a computer science student based in Karachi,
+          Pakistan. I'm deeply interested in backend web development and love
+          building projects that solve real problems.
+        </p>
+
+        <p>
+          I started my coding journey with Python and quickly fell in love with
+          Django's elegant philosophy. I enjoy working on full-stack projects,
+          from designing clean database schemas to building polished user interfaces.
+        </p>
+
+        <p>
+          When I'm not coding, you'll find me reading tech blogs, experimenting
+          with graphic design, or helping juniors debug their first programs.
+        </p>
+      </div>
+
+      <div class="about-details">
+
+        <div class="about-detail-card">
+          <h4>🎓 Education</h4>
+          <p>Currently pursuing Bachelor's in Computer Science. Intermediate completed with distinction.</p>
+        </div>
+
+        <div class="about-detail-card">
+          <h4>💡 Interests</h4>
+          <p>Web Development, Python scripting, Graphic Design, Open Source, and UI/UX Exploration.</p>
+        </div>
+
+        <div class="about-detail-card">
+          <h4>🎯 Career Goal</h4>
+          <p>To become a professional Django backend developer and contribute to impactful web applications.</p>
+        </div>
+
+        <div class="about-detail-card">
+          <h4>💪 Strengths</h4>
+          <p>Quick learner, detail-oriented, problem solver, strong communicator, and a collaborative team player.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Education Section -->
+<section class="section education" id="education">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">My academic background and qualifications.</p>
+    </div>
+
+    <div class="education-list">
+
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-info">
+          <h3>Bachelor of Computer Science</h3>
+          <p class="edu-institute">University of Karachi</p>
+          <p class="edu-year">2023 – Present</p>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-icon">📘</div>
+        <div class="edu-info">
+          <h3>Intermediate</h3>
+          <p class="edu-institute">Govt. Degree Science College, Karachi</p>
+          <p class="edu-year">2021 – 2023</p>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-icon">📗</div>
+        <div class="edu-info">
+          <h3>Matric</h3>
+          <p class="edu-institute">Karachi Model School</p>
+          <p class="edu-year">2019 – 2021</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Skills Section -->
+
+<section class="section" id="skills">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Technologies and tools I work with.</p>
+    </div>
+
+    <div class="skills-grid">
+
+      {% for skill in skills %}
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-level-label">{{ skill.level }}%</span>
+          </div>
+
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: {{ skill.level }}%;"></div>
+          </div>
+        </div>
+
+      {% empty %}
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">HTML</span>
+            <span class="skill-level-label">90%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">CSS</span>
+            <span class="skill-level-label">80%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Python</span>
+            <span class="skill-level-label">85%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="skill-name">Django</span>
+            <span class="skill-level-label">75%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" style="width: 75%;"></div>
+          </div>
+        </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Career Goal Section -->
+<section class="section career-goal" id="career">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 class="section-title">Career Goal</h2>
+      <p class="section-subtitle" style="color:#74c69d;">Where I'm headed.</p>
+    </div>
+
+    <div class="career-goal-box">
+
+      <div class="career-goal-text">
+        <p>
+          My goal is to become a skilled Django backend developer who builds
+          scalable, clean, and maintainable web applications.
+        </p>
+
+        <p>
+          In the near term, I want to master Django REST Framework, learn
+          deployment, and work on real-world web projects.
+        </p>
+
+        <a href="{% url 'contact' %}" class="btn btn-primary" style="margin-top:12px;">
+          Let's Connect
+        </a>
+      </div>
+
+      <div class="career-strengths">
+
+        <div class="strength-item">
+          <span class="strength-icon">🚀</span>
+          <p><strong>Fast Learner</strong> — Able to pick up new technologies quickly.</p>
+        </div>
+
+        <div class="strength-item">
+          <span class="strength-icon">🔍</span>
+          <p><strong>Detail-Oriented</strong> — I care about clean code and proper structure.</p>
+        </div>
+
+        <div class="strength-item">
+          <span class="strength-icon">🤝</span>
+          <p><strong>Team Player</strong> — Comfortable working with others.</p>
+        </div>
+
+        <div class="strength-item">
+          <span class="strength-icon">🧩</span>
+          <p><strong>Problem Solver</strong> — I solve problems step by step.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

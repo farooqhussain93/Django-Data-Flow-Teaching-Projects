@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="{% block meta_description %}Personal portfolio website{% endblock %}" />
+
+  <title>{% block title %}Student Portfolio{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'portfolio_app/css/style.css' %}" />
+</head>
+<body>
+
+  <!-- Navbar Start -->
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="{% url 'home' %}" class="navbar-brand">
+          &lt;<span>Student</span>Portfolio /&gt;
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+
+       
+
+
+        <ul class="navbar-links" id="navLinks">
+  <li>
+    <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+      Home
+    </a>
+  </li>
+
+  <li>
+    <a href="{% url 'projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">
+      Projects
+    </a>
+  </li>
+
+  <li>
+    <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+      Contact
+    </a>
+  </li>
+</ul>
+
+
+
+
+      </div>
+    </nav>
+  </header>
+  <!-- Navbar End -->
+
+
+  <!-- Main Content Start -->
+  <main>
+    {% block content %}
+
+    {% endblock %}
+  </main>
+  <!-- Main Content End -->
+
+
+  <!-- Footer Start -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">&lt;<span>Student</span>Portfolio /&gt;</span>
+
+        <nav class="footer-nav">
+          <a href="{% url 'home' %}">Home</a>
+          <a href="{% url 'projects' %}">Projects</a>
+          <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+
+        <p class="footer-copy">&copy; 2026 Student Portfolio. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

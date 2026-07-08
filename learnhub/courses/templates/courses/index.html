@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LearnHub - Online Course Landing Page</title>
+    <link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LearnHub</div>
+        <nav>
+            <a href="#courses">Courses</a>
+            <a href="#enroll">Enroll</a>
+            <a href="#demo">Free Demo</a>
+            <a href="#question">Ask Question</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Learn New Skills Online</h1>
+        <p>Join our professional online courses and start learning from today.</p>
+        <a href="#enroll" class="btn">Get Started</a>
+    </section>
+
+    <section id="courses" class="courses-section">
+        <h2>Our Popular Courses</h2>
+
+        <div class="course-boxes">
+            <div class="course-card">
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS, JavaScript and Django.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Graphic Design</h3>
+                <p>Learn modern design tools and creative skills.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Digital Marketing</h3>
+                <p>Learn SEO, social media marketing and ads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="forms-wrapper">
+
+        <div id="enroll" class="form-box">
+            <h2>Course Enrollment Form</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="enrollment">
+
+                <input type="text" name="name" placeholder="Enter your name">
+                <input type="email" name="email" placeholder="Enter your email">
+                <input type="text" name="phone" placeholder="Enter your phone">
+
+                <select name="selected_course">
+                    <option value="">Select Course</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                </select>
+
+                <button type="submit">Enroll Now</button>
+            </form>
+        </div>
+
+        <div id="demo" class="form-box">
+            <h2>Free Demo Class Form</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="demo">
+
+                <input type="text" name="name" placeholder="Enter your name">
+                <input type="text" name="phone" placeholder="Enter your phone">
+                <input type="date" name="preferred_date">
+
+                <select name="course_interest">
+                    <option value="">Course Interest</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                </select>
+
+                <button type="submit">Request Demo</button>
+            </form>
+        </div>
+
+        <div id="question" class="form-box">
+            <h2>Student Question Form</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="question">
+
+                <input type="text" name="name" placeholder="Enter your name">
+                <input type="email" name="email" placeholder="Enter your email">
+                <textarea name="question" placeholder="Write your question"></textarea>
+
+                <button type="submit">Submit Question</button>
+            </form>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 LearnHub. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
